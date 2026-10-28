@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply text-slate-100 antialiased;
+  background: #07111f;
+}
+input,
+select {
+  @apply rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm outline-none focus:border-cyan-400;
+}
+button {
+  @apply transition disabled:cursor-not-allowed disabled:opacity-50;
+}
+.dashboard-glow { position: fixed; inset: 0; pointer-events: none; background: radial-gradient(circle at 75% -10%, rgba(34, 211, 238, .12), transparent 32%), radial-gradient(circle at 15% 35%, rgba(124, 58, 237, .08), transparent 25%); }
+.header-shell { @apply rounded-2xl border border-white/[.08] bg-slate-900/55 px-4 py-4 shadow-xl shadow-black/10 backdrop-blur-sm sm:px-5; }
+.brand-mark { @apply flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-400 text-slate-950 shadow-lg shadow-cyan-400/20; }
+.eyebrow { @apply text-[10px] font-bold uppercase tracking-[.22em] text-cyan-400; }
+.btn-icon { @apply flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[.04] text-slate-300 hover:border-cyan-400/50 hover:bg-cyan-400/10 hover:text-cyan-300; }
+.btn-icon-small { @apply h-7 w-7 rounded-md; }
+.status-dot { @apply h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,.8)]; }
+.alert { @apply mb-5 rounded-xl border px-4 py-3 text-sm; }
+.alert-error { @apply border-rose-400/20 bg-rose-400/10 text-rose-200; }
+.alert-success { @apply border-emerald-400/20 bg-emerald-400/10 text-emerald-200; }
+.toast { @apply fixed right-4 top-4 z-50 flex max-w-[calc(100vw-2rem)] items-center gap-3 rounded-xl border px-4 py-3 text-sm shadow-2xl shadow-black/30 backdrop-blur-md sm:right-6 sm:top-6; animation: toast-in .25s ease-out; }
+.toast-success { @apply border-emerald-400/30 bg-[#102c2a]/95 text-emerald-100; }
+.toast-check { @apply flex h-5 w-5 items-center justify-center rounded-full bg-emerald-400 text-xs font-bold text-slate-950; }
+.toast button { @apply ml-2 text-lg leading-none text-emerald-200/60 hover:text-white; }
+.field-error { @apply mt-1.5 text-xs leading-4 text-rose-300; }
+.input-error { @apply border-rose-400/70 ring-1 ring-rose-400/20; }
+.panel { @apply rounded-2xl border border-white/[.08] bg-slate-900/70 shadow-2xl shadow-black/20 backdrop-blur-sm; }
+.panel-heading { @apply flex items-center justify-between border-b border-white/[.06] px-5 py-5 sm:px-6; }
+.panel-title { @apply mt-1 text-lg font-semibold text-white; }
+.count-pill { @apply rounded-full bg-white/[.06] px-2.5 py-1 text-xs text-slate-400; }
+.summary-card { @apply flex items-center gap-4 rounded-2xl border border-white/[.08] bg-slate-900/60 p-5 shadow-xl shadow-black/10; }
+.summary-icon { @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-xl; }
+.summary-icon svg { @apply h-5 w-5; }
+.summary-cyan { @apply bg-cyan-400/10 text-cyan-300; }
+.summary-violet { @apply bg-violet-400/10 text-violet-300; }
+.summary-emerald { @apply bg-emerald-400/10 text-emerald-300; }
+.account-row { @apply flex w-full items-center gap-3 rounded-xl border border-transparent p-3 text-left hover:border-white/10 hover:bg-white/[.03] sm:p-4; }
+.account-row-active { @apply border-cyan-400/40 bg-cyan-400/[.06] hover:border-cyan-400/50 hover:bg-cyan-400/[.08]; }
+.account-icon { @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/[.06] text-slate-400; }
+.account-row-active .account-icon { @apply bg-cyan-400/10 text-cyan-300; }
+.section-icon { @apply flex h-9 w-9 items-center justify-center rounded-lg; }
+.transaction-icon { @apply flex h-8 w-8 shrink-0 items-center justify-center rounded-full; }
+.transaction-credit { @apply bg-emerald-400/10 text-emerald-300; }
+.transaction-debit { @apply bg-rose-400/10 text-rose-300; }
+.empty-state { @apply flex flex-col items-center justify-center gap-1 text-center text-slate-500; }
+.empty-state svg { @apply mb-2 text-slate-600; }
+.empty-state p { @apply text-sm font-medium text-slate-400; }
+.empty-state span { @apply text-xs; }
+.btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-xl bg-cyan-400 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-400/10 hover:bg-cyan-300; }
+.required-mark { @apply ml-0.5 text-rose-400; }
+.modal-backdrop { @apply fixed inset-0 z-40 flex items-center justify-center bg-slate-950/75 p-4 backdrop-blur-sm; animation: modal-fade .2s ease-out; }
+.modal-card { @apply w-full max-w-md overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl shadow-black/50; animation: modal-up .2s ease-out; }
+form input, form select { @apply border-white/10 bg-slate-950/60; }
+form textarea { @apply rounded-lg border border-white/10 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 outline-none placeholder:text-slate-600 focus:border-cyan-400; }
+.optional-label { @apply font-normal normal-case tracking-normal text-slate-600; }
+@media (max-width: 640px) { .summary-card { @apply p-4; } }
+@keyframes toast-in { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes modal-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modal-up { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+/* Financial dashboard shell */
+.app-shell { @apply flex min-h-screen bg-[#07111f] text-slate-100; }
+.sidebar { @apply fixed inset-y-0 left-0 z-50 flex w-64 flex-col border-r border-white/[.07] bg-[#091624] px-4 py-5; }
+.sidebar-brand { @apply flex items-center gap-3 px-2; }
+.sidebar-close { @apply ml-auto hidden; }
+.sidebar-label { @apply mb-2 mt-9 px-3 text-[10px] font-bold uppercase tracking-[.2em] text-slate-600; }
+.nav-item { @apply relative flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm text-slate-500 hover:bg-white/[.04] hover:text-slate-200; }
+.nav-item-active { @apply bg-cyan-400/10 text-cyan-300; }
+.nav-active-dot { @apply ml-auto h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_8px_rgba(103,232,249,.8)]; }
+.sidebar-bottom { @apply mt-auto space-y-3; }
+.security-card { @apply flex items-start gap-3 rounded-xl border border-cyan-400/10 bg-cyan-400/[.04] p-3; }
+.user-card { @apply flex items-center gap-3 border-t border-white/[.06] px-2 pt-4; }
+.avatar, .top-avatar { @apply flex h-8 w-8 items-center justify-center rounded-full bg-cyan-400/15 text-[10px] font-bold text-cyan-300; }
+.main-shell { @apply ml-64 min-h-screen flex-1; }
+.topbar { @apply flex h-[76px] items-center justify-between border-b border-white/[.07] bg-[#07111f]/80 px-5 backdrop-blur-md sm:px-8; }
+.topbar-title { @apply hidden border-l border-white/[.08] pl-4 sm:block; }
+.mobile-menu, .mobile-brand { @apply hidden; }
+.system-status { @apply flex items-center gap-2 rounded-full border border-emerald-400/15 bg-emerald-400/[.06] px-3 py-2 text-[11px] font-medium text-emerald-300; }
+.refresh-button { @apply inline-flex items-center gap-2 rounded-xl border border-cyan-400/20 bg-cyan-400/10 px-3 py-2 text-xs font-semibold text-cyan-200 hover:border-cyan-400/50 hover:bg-cyan-400/20; }
+.dashboard-content { @apply mx-auto max-w-[1440px] px-5 py-7 sm:px-8 lg:px-10; }
+.hero-row { @apply mb-7 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between; }
+.dashboard-heading { @apply mt-2 text-3xl font-bold tracking-tight text-white sm:text-[34px]; }
+.dashboard-subtitle { @apply mt-2 max-w-xl text-sm text-slate-500; }
+.kpi-grid { @apply mb-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4; }
+.kpi-card { @apply flex items-center gap-4 rounded-2xl border border-white/[.08] bg-slate-900/60 p-5 shadow-xl shadow-black/10; }
+.kpi-icon { @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-xl; }
+.kpi-icon svg { @apply h-5 w-5; }
+.kpi-cyan { @apply bg-cyan-400/10 text-cyan-300; }
+.kpi-purple { @apply bg-violet-400/10 text-violet-300; }
+.kpi-green { @apply bg-emerald-400/10 text-emerald-300; }
+.kpi-orange { @apply bg-orange-400/10 text-orange-300; }
+.dashboard-grid { @apply grid gap-6 xl:grid-cols-[minmax(0,1.25fr)_minmax(360px,.75fr)]; }
+.portfolio-panel, .action-panel, .transfer-panel, .activity-panel { @apply overflow-hidden; }
+.account-list { @apply space-y-2 p-3 sm:p-4; }
+.account-card { @apply flex w-full items-center gap-3 rounded-xl border border-transparent p-3 text-left hover:border-white/10 hover:bg-white/[.03] sm:p-4; }
+.account-card-active { @apply border-cyan-400/35 bg-cyan-400/[.06] hover:border-cyan-400/50 hover:bg-cyan-400/[.08]; }
+.account-card-icon { @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/[.06] text-slate-400; }
+.account-card-active .account-card-icon { @apply bg-cyan-400/10 text-cyan-300; }
+.panel-footer { @apply flex items-center justify-between border-t border-white/[.06] px-5 py-4; }
+.text-action { @apply inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-300 hover:text-cyan-200; }
+.selected-account { @apply mb-5 flex items-center gap-3 rounded-xl border border-cyan-400/10 bg-cyan-400/[.04] p-3; }
+.soft-badge { @apply inline-flex items-center gap-1.5 rounded-full border border-white/[.08] bg-white/[.03] px-2.5 py-1 text-[10px] font-medium text-slate-500; }
+.transfer-panel, .activity-panel { @apply mt-6; }
+.activity-table { @apply overflow-x-auto; }
+.activity-head, .activity-row { @apply grid min-w-[680px] grid-cols-[1.5fr_1fr_1fr_.7fr] items-center gap-4 px-5; }
+.activity-head { @apply border-b border-white/[.06] py-3 text-[10px] font-bold uppercase tracking-wider text-slate-600; }
+.activity-row { @apply border-b border-white/[.05] py-4 last:border-0; }
+.activity-row-button { @apply w-full text-left transition-colors hover:bg-slate-50; }
+.activity-type { @apply text-sm font-semibold capitalize text-slate-800; }
+.activity-description { @apply truncate text-xs text-slate-500; }
+.activity-account { @apply truncate text-xs font-semibold text-slate-700; }
+.activity-reference { @apply truncate text-xs font-medium text-slate-500; }
+.activity-amount { @apply text-right font-mono text-sm font-bold; }
+.activity-amount-credit { @apply text-emerald-600; }
+.activity-amount-debit { @apply text-rose-600; }
+.transaction-details { @apply space-y-5; }
+.detail-status { @apply flex items-center gap-3 rounded-xl p-4; }
+.detail-credit { @apply bg-emerald-50 text-emerald-700; }
+.detail-debit { @apply bg-rose-50 text-rose-700; }
+.detail-grid { @apply grid gap-4 rounded-xl border border-slate-200 bg-slate-50 p-4 sm:grid-cols-2; }
+.detail-label { @apply text-[10px] font-bold uppercase tracking-wider text-slate-400; }
+.detail-description { @apply rounded-xl border border-slate-200 bg-white p-4; }
+.dashboard-footer { @apply flex flex-col gap-2 py-8 text-xs text-slate-600 sm:flex-row sm:justify-between; }
+.sidebar-overlay { @apply fixed inset-0 z-40 bg-slate-950/70 backdrop-blur-sm; }
+@media (max-width: 1023px) {
+  .sidebar { transform: translateX(-100%); transition: transform .2s ease; }
+  .sidebar-open { transform: translateX(0); }
+  .sidebar-close { @apply block; }
+  .main-shell { @apply ml-0; }
+  .mobile-menu, .mobile-brand { @apply flex; }
+  .mobile-brand { @apply items-center gap-2; }
+  .mobile-brand .brand-mark { @apply h-8 w-8 rounded-lg; }
+}
+@media (max-width: 640px) {
+  .dashboard-content { @apply px-4 py-6; }
+  .topbar { @apply px-4; }
+  .hero-row .btn-primary { @apply w-full; }
+  .panel-heading { @apply px-5 py-4; }
+  .panel-footer { @apply items-start gap-3; }
+}
+
+/* Light finance theme: clean white surfaces with a soft blue-gray canvas. */
+.app-shell { background: #f4f7fb; color: #172033; }
+.app-shell .sidebar { background: #ffffff; border-color: #e7ebf2; box-shadow: 8px 0 30px rgba(24, 39, 75, .035); }
+.app-shell .main-shell { background: #f4f7fb; }
+.app-shell .topbar { background: rgba(255,255,255,.9); border-color: #e7ebf2; }
+.app-shell .header-shell { background: #ffffff; border-color: #e7ebf2; }
+.app-shell [class~="text-white"], .app-shell [class~="text-slate-100"], .app-shell [class~="text-slate-200"] { color: #172033; }
+.app-shell [class~="text-slate-300"] { color: #526078; }
+.app-shell [class~="text-slate-400"], .app-shell [class~="text-slate-500"] { color: #738097; }
+.app-shell [class~="text-slate-600"] { color: #99a4b6; }
+.app-shell .brand-mark { background: #155eef; color: #ffffff; box-shadow: 0 8px 18px rgba(21,94,239,.2); }
+.app-shell .eyebrow { color: #155eef; }
+.app-shell .nav-item { color: #68758b; }
+.app-shell .nav-item:hover { background: #f2f6ff; color: #172033; }
+.app-shell .nav-item-active { background: #edf4ff; color: #155eef; }
+.app-shell .nav-active-dot { background: #155eef; box-shadow: 0 0 8px rgba(21,94,239,.45); }
+.app-shell .sidebar-label { color: #a1acbd; }
+.app-shell .security-card { border-color: #dbe8ff; background: #f3f7ff; }
+.app-shell .user-card { border-color: #e7ebf2; }
+.app-shell .avatar, .app-shell .top-avatar { background: #e8f0ff; color: #155eef; }
+.app-shell .system-status { border-color: #d9f2e5; background: #f0fbf5; color: #16824d; }
+.app-shell .status-dot { background: #20b26b; box-shadow: 0 0 8px rgba(32,178,107,.45); }
+.app-shell .dashboard-heading { color: #172033; }
+.app-shell .dashboard-subtitle { color: #738097; }
+.app-shell .panel, .app-shell .kpi-card { background: #ffffff; border-color: #e5eaf2; box-shadow: 0 8px 24px rgba(24,39,75,.045); }
+.app-shell .panel-heading, .app-shell .panel-footer { border-color: #edf0f5; }
+.app-shell .panel-title { color: #172033; }
+.app-shell .count-pill, .app-shell .soft-badge { background: #f5f7fb; border-color: #e7ebf2; color: #738097; }
+.app-shell .kpi-icon { box-shadow: inset 0 0 0 1px rgba(21,94,239,.03); }
+.app-shell .kpi-cyan { background: #eaf2ff; color: #155eef; }
+.app-shell .kpi-purple { background: #f0edff; color: #6e56cf; }
+.app-shell .kpi-green { background: #eaf9f1; color: #16824d; }
+.app-shell .kpi-orange { background: #fff4e7; color: #c46b16; }
+.app-shell .account-card { border-color: transparent; }
+.app-shell .account-card:hover { background: #f7f9fc; border-color: #e5eaf2; }
+.app-shell .account-card-active { background: #f1f6ff; border-color: #b8d0ff; }
+.app-shell .account-card-icon { background: #f1f4f9; color: #6c7890; }
+.app-shell .account-card-active .account-card-icon { background: #e2edff; color: #155eef; }
+.app-shell .selected-account { border-color: #dbe8ff; background: #f3f7ff; }
+.app-shell .btn-icon { background: #ffffff; border-color: #e1e7f0; color: #68758b; }
+.app-shell .btn-icon:hover { border-color: #9bbcff; background: #f1f6ff; color: #155eef; }
+.app-shell .btn-primary { background: #155eef; color: #ffffff; box-shadow: 0 8px 16px rgba(21,94,239,.18); }
+.app-shell .btn-primary:hover { background: #0d4fd3; }
+.app-shell .refresh-button { border-color: #cfe0ff; background: #edf4ff; color: #155eef; }
+.app-shell .refresh-button:hover { border-color: #9bbcff; background: #e2edff; }
+.app-shell .text-action { color: #155eef; }
+.app-shell .transaction-credit { background: #eaf9f1; color: #16824d; }
+.app-shell .transaction-debit { background: #fff0f0; color: #d64545; }
+.app-shell .activity-head { color: #9aa5b5; border-color: #edf0f5; }
+.app-shell .activity-row { border-color: #edf0f5; }
+.app-shell form input, .app-shell form select, .app-shell form textarea { background: #ffffff; border-color: #dfe5ee; color: #172033; }
+.app-shell form input::placeholder, .app-shell form textarea::placeholder { color: #a4afbf; }
+.app-shell form input:focus, .app-shell form select:focus, .app-shell form textarea:focus { border-color: #5b8def; box-shadow: 0 0 0 3px rgba(21,94,239,.1); }
+.app-shell .modal-backdrop { background: rgba(16,27,48,.35); }
+.app-shell .modal-card { background: #ffffff; border-color: #e5eaf2; box-shadow: 0 24px 60px rgba(24,39,75,.18); }
+.app-shell .modal-card .border-white\/\[\.07\] { border-color: #edf0f5; }
+.app-shell .empty-state { color: #99a4b6; }
+.app-shell .empty-state svg { color: #bdc7d5; }
+.app-shell .empty-state p { color: #68758b; }
+.app-shell .toast-success { background: #f0fbf5; border-color: #bfe8d0; color: #176b43; }
+.app-shell .toast-check { background: #20b26b; }
